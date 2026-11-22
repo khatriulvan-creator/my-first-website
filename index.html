@@ -3,38 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <title>Ajrakh Studio – Hand Block Printed Textiles</title>
 
   <style>
+    :root {
+      --indigo: #1b2a5c;
+      --madder: #a8322a;
+      --cream: #f3ead8;
+      --ink: #14182b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: #111827;
-      color: white;
-      font-family: Arial, sans-serif;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .band { display: block; width: 100%; height: 56px; }
+
+    .hero {
+      background: var(--indigo);
+      color: var(--cream);
       text-align: center;
-      padding: 50px 20px;
+      padding: 72px 24px 64px;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 9vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .hero p {
+      max-width: 34ch;
+      margin: 20px auto 32px;
+      font-size: 1.15rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--madder);
+      color: var(--cream);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      border-radius: 4px;
     }
 
-    h1 {
-      color: #facc15;
-    }
+    section { padding: 64px 24px; max-width: 960px; margin: 0 auto; }
+    h2 { font-size: 2rem; font-weight: 400; color: var(--indigo); margin-bottom: 16px; }
+    .about p { max-width: 62ch; margin-bottom: 16px; }
 
-    button {
-      padding: 12px 24px;
-      background: #facc15;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
+    .steps { list-style: none; margin-top: 28px; display: grid; gap: 12px; }
+    .steps li { padding-left: 16px; border-left: 4px solid var(--madder); }
+    .steps strong { color: var(--indigo); }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 28px;
     }
+    .swatch { width: 100%; height: 190px; display: block; border: 3px solid var(--indigo); }
+    .product h3 { font-size: 1.15rem; font-weight: 400; margin-top: 12px; color: var(--indigo); }
+    .product p { font-family: Arial, sans-serif; font-size: 0.95rem; }
+
+    .order { background: var(--indigo); color: var(--cream); text-align: center; max-width: none; }
+    .order h2 { color: var(--cream); }
+    .order p { margin: 0 auto 28px; max-width: 40ch; }
+
+    footer { text-align: center; padding: 24px; font-family: Arial, sans-serif; font-size: 0.9rem; }
   </style>
 </head>
 
 <body>
-  <h1>Welcome to My Website!</h1>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="indigo" width="40" height="40" patternUnits="userSpaceOnUse">
+        <rect width="40" height="40" fill="#1b2a5c"/>
+        <path d="M20 4 36 20 20 36 4 20Z" fill="none" stroke="#f3ead8" stroke-width="1.5"/>
+        <path d="M20 12 28 20 20 28 12 20Z" fill="#a8322a"/>
+        <circle cx="20" cy="20" r="2.5" fill="#f3ead8"/>
+        <circle cx="0" cy="0" r="3" fill="#f3ead8"/>
+        <circle cx="40" cy="0" r="3" fill="#f3ead8"/>
+        <circle cx="0" cy="40" r="3" fill="#f3ead8"/>
+        <circle cx="40" cy="40" r="3" fill="#f3ead8"/>
+      </pattern>
+      <pattern id="madder" width="40" height="40" patternUnits="userSpaceOnUse">
+        <rect width="40" height="40" fill="#8f2a22"/>
+        <path d="M20 4 36 20 20 36 4 20Z" fill="none" stroke="#f3ead8" stroke-width="1.5"/>
+        <path d="M20 12 28 20 20 28 12 20Z" fill="#1b2a5c"/>
+        <circle cx="20" cy="20" r="2.5" fill="#f3ead8"/>
+        <circle cx="0" cy="0" r="3" fill="#1b2a5c"/>
+        <circle cx="40" cy="0" r="3" fill="#1b2a5c"/>
+        <circle cx="0" cy="40" r="3" fill="#1b2a5c"/>
+        <circle cx="40" cy="40" r="3" fill="#1b2a5c"/>
+      </pattern>
+      <pattern id="cream" width="40" height="40" patternUnits="userSpaceOnUse">
+        <rect width="40" height="40" fill="#f3ead8"/>
+        <path d="M20 4 36 20 20 36 4 20Z" fill="none" stroke="#1b2a5c" stroke-width="1.5"/>
+        <path d="M20 12 28 20 20 28 12 20Z" fill="#a8322a"/>
+        <circle cx="20" cy="20" r="2.5" fill="#1b2a5c"/>
+        <circle cx="0" cy="0" r="3" fill="#1b2a5c"/>
+        <circle cx="40" cy="0" r="3" fill="#1b2a5c"/>
+        <circle cx="0" cy="40" r="3" fill="#1b2a5c"/>
+        <circle cx="40" cy="40" r="3" fill="#1b2a5c"/>
+      </pattern>
+    </defs>
+  </svg>
 
-  <p>My first website made using GitHub.</p>
+  <header class="hero">
+    <h1>Ajrakh Studio</h1>
+    <p>Hand block printed cloth, dyed with natural indigo and madder.</p>
+    <a class="btn" href="#order">Order on WhatsApp</a>
+  </header>
+  <svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#madder)"/></svg>
 
-  <button onclick="alert('Welcome!')">
-    Click Me
-  </button>
+  <section class="about" id="craft">
+    <h2>The craft</h2>
+    <p>Ajrakh is a block printing tradition from Kutch and Sindh. Every metre is printed by hand with carved wooden blocks, then dyed in indigo and madder root, so no two pieces are exactly alike.</p>
+    <p>One cloth goes through the printer's hands many times over several days. Nothing is rushed, because the dye needs time to set.</p>
+    <ul class="steps">
+      <li><strong>Wash and prepare.</strong> The cloth is washed and soaked so it takes dye evenly.</li>
+      <li><strong>Block print.</strong> Resist paste and mordants are stamped on with carved blocks.</li>
+      <li><strong>Dye.</strong> The cloth is dipped in indigo and boiled with madder for the deep reds.</li>
+      <li><strong>Wash and dry.</strong> It is rinsed in running water and dried in the sun.</li>
+    </ul>
+  </section>
+
+  <svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#indigo)"/></svg>
+
+  <section id="shop">
+    <h2>Our pieces</h2>
+    <div class="grid">
+      <article class="product">
+        <svg class="swatch" aria-hidden="true"><rect width="100%" height="100%" fill="url(#indigo)"/></svg>
+        <h3>Dupatta</h3>
+        <p>Soft cotton, indigo base. From ₹000</p>
+      </article>
+      <article class="product">
+        <svg class="swatch" aria-hidden="true"><rect width="100%" height="100%" fill="url(#madder)"/></svg>
+        <h3>Saree</h3>
+        <p>Madder red, 5.5 m. From ₹000</p>
+      </article>
+      <article class="product">
+        <svg class="swatch" aria-hidden="true"><rect width="100%" height="100%" fill="url(#cream)"/></svg>
+        <h3>Fabric by the metre</h3>
+        <p>For kurtas, shirts and home. From ₹000 per m</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <h2>Place an order</h2>
+    <p>Message us the piece and colour you like. We reply the same day.</p>
+    <a class="btn" href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20order%20an%20Ajrakh%20piece">Chat on WhatsApp</a>
+  </section>
+
+  <footer>© 2026 Ajrakh Studio. Made by hand.</footer>
 </body>
 </html>
